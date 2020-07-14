@@ -1,0 +1,1 @@
+its like a 3 step process with two layers of encapsulation, just remember the steps and to code to an interace so the director cna benefit from polymorphhism and practice and then this will make more sense as you go.
