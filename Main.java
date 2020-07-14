@@ -1,18 +1,15 @@
 package com.company;
 
 public class Main {
-
+//changes
     public static void main(String[] args) {
 	// write your code here
-        AnimalFactory animalFactory = new AnimalFactory();
-        Animal duck = animalFactory.getAnimalObject("duck");
-        duck.eat();
-        duck.walk();
-        duck.roar();
-        Animal tiger = animalFactory.getAnimalObject("tiger");
-        tiger.eat();
-        tiger.walk();
-        System.out.println(tiger.roar());
-
+        AbstractFactory af = FactoryProducer.getFactory("comedy");
+        AbstractMovie hollywoodComedy = af.getComedyMovie("Hollywood");
+//        System.out.println(hollywoodComedy);
+        hollywoodComedy.getStudioType();
     }
 }
+
+
+
