@@ -1,6 +1,8 @@
-package com.company;
+package com.company.items;
 
-public abstract class FoodItem implements Packing{
+import com.company.Packing;
+
+public abstract class FoodItem implements Packing {
 
     //members
 //    double subtax=0.2;

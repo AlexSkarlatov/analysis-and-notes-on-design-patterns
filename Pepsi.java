@@ -1,6 +1,8 @@
-package com.company;
+package com.company.items;
 
-public class Pepsi extends DrinkAbstract implements Packing{
+import com.company.Packing;
+
+public class Pepsi extends DrinkAbstract implements Packing {
     public Pepsi(){
         name = "thirst quenching pepsi";
         price = 3.00;

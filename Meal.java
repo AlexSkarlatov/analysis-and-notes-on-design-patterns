@@ -1,8 +1,10 @@
-package com.company;
+package com.company.product;
+
+import com.company.items.FoodItem;
 
 import java.util.LinkedList;
 
-public class Meal implements MealBuilder{
+public class Meal {
     LinkedList<FoodItem> list = new LinkedList<>();
 
     public void addItem(FoodItem addThis){
@@ -29,20 +31,20 @@ public class Meal implements MealBuilder{
         }
     }
 
-    @Override
-    public void buildBurger() {
-        System.out.println("null");
-    }
-
-    @Override
-    public void buildDrink() {
-        System.out.println("null");
-    }
-
-    @Override
-    public Meal getMeal() {
-        return this;
-    }
+//    @Override
+//    public void buildBurger( ) {
+//        System.out.println("null");
+//    }
+//
+//    @Override
+//    public void buildDrink() {
+//        System.out.println("null");
+//    }
+//
+//    @Override
+//    public Meal getMeal() {
+//        return this;
+//    }
 
 //    @Override
 //    public void buildBurger() {

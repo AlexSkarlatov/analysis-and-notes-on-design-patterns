@@ -1,6 +1,4 @@
-package com.company;
-
-import java.util.LinkedList;
+package com.company.product;
 
 public interface MealBuilder {
     public void buildBurger();

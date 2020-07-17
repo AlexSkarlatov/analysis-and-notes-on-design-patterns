@@ -1,16 +1,24 @@
 package com.company;
 
-public class Director {
-    Meal mealBuilderObject;
+import com.company.product.Meal;
+import com.company.product.MealBuilder;
 
-    public Director(Meal meal){
-        this.mealBuilderObject = meal;
+public class Director {
+    MealBuilder mealBuilderObject;
+
+    public Director(MealBuilder builder){
+        mealBuilderObject = builder;
+//        his.mealBuilderObject = meal;
     }
     public Director(){
 
     }
+    public Meal getMeal(){
+        return mealBuilderObject.getMeal();
+//        return this.mealBuilderObject;
+    }
     public void setMealBuilderObject(Meal mealBuilderObject){
-        this.mealBuilderObject = mealBuilderObject;
+//        this.mealBuilderObject = mealBuilderObject;
 
     }
     public void construct(){
@@ -18,11 +26,13 @@ public class Director {
         mealBuilderObject.buildDrink();
     }
     public void showContents(){
-        mealBuilderObject.showItems();
+        mealBuilderObject.getMeal().showItems();
+//        .showItems();
     }
-    public void construct(Meal meal){
-        mealBuilderObject = meal;
+    public void construct(MealBuilder builder){
+        mealBuilderObject = builder;
         mealBuilderObject.buildBurger();
         mealBuilderObject.buildDrink();
+//        mealBuilderObject.getMeal().showItems();
     }
 }

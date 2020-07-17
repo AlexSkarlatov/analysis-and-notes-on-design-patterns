@@ -1,6 +1,5 @@
-package com.company;
+package com.company.items;
 
-import com.company.BurgerAbstract;
 import com.company.Packing;
 
 public class VegetarianBurger extends BurgerAbstract implements Packing {

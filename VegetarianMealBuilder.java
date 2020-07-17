@@ -1,22 +1,34 @@
-package com.company;
+package com.company.product;
 
-import com.company.MealBuilder;
+import com.company.items.VegetarianBurger;
+import com.company.items.WaterBottle;
 
-import java.util.LinkedList;
+public class VegetarianMealBuilder  implements MealBuilder {
+   Meal veggieMeal = new Meal();
 
-public class VegetarianMealBuilder extends Meal implements MealBuilder {
+//    VegetarianMealBuilder(Meal m){
+//        this.m = m;
+//    }
+
+
     @Override
     public void buildBurger() {
-        list.addLast(new VegetarianBurger());
+        veggieMeal.addItem(new VegetarianBurger());
+//        list.addLast(new VegetarianBurger());
     }
 
     @Override
     public void buildDrink() {
-        list.addLast(new WaterBottle());
+
+        veggieMeal.addItem(new WaterBottle());
+//        list.addLast(new WaterBottle());
     }
 
     @Override
     public Meal getMeal() {
-        return this;
+        return veggieMeal;
+        //used to extend from meal now it doesnt due to being too tightly coupled
+        //mistake on my part
+//        return this;
     }
 }

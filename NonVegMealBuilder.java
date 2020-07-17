@@ -1,23 +1,28 @@
-package com.company;
+package com.company.product;
 
-import java.util.LinkedList;
+import com.company.items.ChickenBurger;
+import com.company.items.Pepsi;
 
-public class NonVegMealBuilder extends Meal implements MealBuilder{
-
+public class NonVegMealBuilder implements MealBuilder {
+//    LinkedList
+    Meal chickenMeal = new Meal();
 
 
     @Override
     public void buildBurger() {
-        list.addLast( new ChickenBurger());
+        chickenMeal.addItem(new ChickenBurger());
     }
 
     @Override
     public void buildDrink() {
-        list.add(new Pepsi());
+//        chickenMeal.buildDrink();
+//        chickenMeal.add(new Pepsi());
+        chickenMeal.addItem(new Pepsi());
     }
 
     @Override
     public Meal getMeal() {
-        return this;
+        return chickenMeal;
+        //return this;
     }
 }

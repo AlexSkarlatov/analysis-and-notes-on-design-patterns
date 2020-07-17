@@ -1,6 +1,8 @@
-package com.company;
+package com.company.items;
 
-public class WaterBottle extends DrinkAbstract implements Packing{
+import com.company.Packing;
+
+public class WaterBottle extends DrinkAbstract implements Packing {
     public WaterBottle(){
         name = "Watery water bottle";
         price = 2.01;
