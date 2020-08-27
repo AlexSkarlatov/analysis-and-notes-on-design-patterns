@@ -4,15 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        AnimalFactory animalFactory = new AnimalFactory();
-        Animal duck = animalFactory.getAnimalObject("duck");
-        duck.eat();
-        duck.walk();
-        duck.roar();
-        Animal tiger = animalFactory.getAnimalObject("tiger");
-        tiger.eat();
-        tiger.walk();
-        System.out.println(tiger.roar());
+        Vehicle v1 = new Car(new Produce(),new Assemble());
+        v1.manufacture();
 
+
+        Vehicle v2 = new Bike(new Produce(),new Assemble());
+        v2.manufacture();
     }
 }
