@@ -1,0 +1,52 @@
+The bridge pattern will decouple an abstraction from its implementation so that the two  can vary independently
+	• Decouples implementation class and abstract class by providing a bridge structure between them
+• We already understand the benefits of decoupling and abstratction
+	• Decoupling means to have things behave independently from each other
+	• Abstraction is how different htings are related to each other conceptually hidng details
+• Implementations here mean the objects that the abstract class and  its derivation use to differentiate themselves
+	• Not the derivations of the abstract class concrete class
+• This pattern helps us to make concrete class fucntionalities independentfrom the interface implementer class
+	•  can alter these different kind of classes structuraally without affectin each other
+
+
+EXAMPLES
+• A standard software company will typically consist of the folowing tow team
+	• A developent team
+	• Technical support team
+• A change in the operational strategy of one team should  not  have an impact on another team
+• The technical support team plays the role of a bridge betweenthe clients and the development team that implements the product
+• Another exampler would be in a gui framework separate window abst
+	• Separate window abstraction from window implementation
+• This is decoupling
+• When you 
+
+WHEN TO USE THE BRIDGE PATTERN
+• When you want to oavoid a permanient binding between an abstraction and its implementationn
+	• When the implementation must be selected or switched at run-time
+• When both the abstractions and their implementations should be  extensibe by subclassing
+	• Lets you combine the difft abstractions and implementationbs  and extend them independently
+• When changes in the implementation of an abstraction should have no impact on our clients
+	• Clients code should not have to be recompiled
+• When you want to hide the implementation of an abstraction completely from its clients
+• When you have a ton implmentation classes
+	• A class hierarchy indicates the need for splitting an ojbect into two 
+	• 
+	• Part
+	• 
+	• 
+	• 
+	• S
+
+Advantages of bridge pattern
+• Decouples an implmentations so it is not bound permanenlty to  an interface
+• Abstraction and implementation can be extedned independently
+	• Allows you to vary the implementation and the abstraction by placing the two in separate class hierarchies
+• Changes to the concrete abstractions classes do not affect the client
+• Adds one more method level redirection to achieve the objective
+• One drawback is that it does slightly increase complexity
+
+Hows it compare to the adapter?
+• The adapter pattern is geared toward making unrelated classes work together
+	• Usually applied to systems after they have  been designed
+• In contrast the bridge is used up front in a desing 
+	• Lets abstractions and implementations vary independently
