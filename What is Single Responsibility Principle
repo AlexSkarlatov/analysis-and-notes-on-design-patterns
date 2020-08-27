@@ -1,0 +1,39 @@
+States that every class should have responsibility over a single part of the functionality provided by the softwre
+	• The responsibility  should be entirely necosulated by the class
+	• All its methods ought to be narrowly alinged with that responsibility 
+	• A class should have only one job
+A class should have a single responsibility where a responsibility is nothing but a reason to chnge
+Should make sure that one class at the most is responsible for doing one tastk among  the whole set of responsiblities
+	 only when there is change neeeded in that specific ctaks should this class be changed
+	
+The single responsibility principle is closely related to the concepts of coupling and cohesion
+
+Coupling is the degree of interdependence beween software classes or methods
+	• A measure of how closely connnected two classes or two methods are
+	• The strength of the relationships between classes
+
+Low coupling means small dependencies between classes/methods
+	• Easier to change code without introduction bugs in otherclassses or methods
+Tight coupling means two classes methods are closely connected
+ *  a change to one may affect another
+
+
+Cohesion refers to what the class or method can do
+
+Low cohesion would mean that the class does a agreat variety of actions
+	• It is broad unfocused on what it should do
+High cohesion means that the class is focused on what it  should be doing
+	• Contains only methods relating to the intention of the class
+The single responsibility principle is about limiting the impact of change by going for low coupled high cohesive classes
+
+Examples of responsibilities in an application
+	• Some exmamples of responsibilities to  consider that may need to be separated include 
+		○ Persistence 
+		○ Validation
+		○ Notification
+		○ Error handling
+		○ Logging
+		○ Class selection/ instantiation
+		○ Formatting
+		○ Parsing
+		○ mapping
