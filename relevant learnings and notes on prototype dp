@@ -1,0 +1,181 @@
+Prototype pattern referes to creating duplic object while keeping peroformance high
+
+
+Used when creation of object is costly requires a lot of time and resources while having a similar object in existence
+
+Provides a mechanism to copy the original object to a new object and then modify it ot our needs
+	Uses java cloning to copy the object shallow or de-serialization when you need copies
+	
+A key aspect of this patttern is that the client code can make new instances without  knowing  which class is being instantiated
+
+
+Use this when the creation of an object through conventional means is particularly resource intensive
+
+
+
+Ptototype pattern refers to creating a duplicate object while keeping performance in mind
+	• It specifies the kinds of objects to create using a prototypical instance and creates new objects by copying this prototype
+Used when creaton of an object is costly, requires a lot of time and resources and you have a similar object already existing
+	Creating a new instantsce is normalyh an expensive operation
+	Focus here is to reduce the expense of this  cretional process of a new instance
+	Priovides a mechanism to copy th eoriginal object to a new object and hten modify it according to needs 
+	Uses java cloning to copy the object or deserilaization when you need deep copies
+	A key aspec ot thdis papttern si that the c lient code can make new instances without knowing which class is being instanitated
+	How is it possibible to make a new instance of something and not know the class you are making?
+	Whe
+	
+	Mandates that the object your are copying should provide the copying feature should not be donbby any other  class
+	Provides .copy() method from the object of being copyiesd
+	Whetehre tto performa ashsallow or deep copy of the object depends on the requirements and desing
+	4
+	
+Suppose wh have an applciations we want to create a similar application with some small changes
+Start with a copy from our master copy application and make the ghanges
+Savaes a lot fotime and resoucrcewss
+
+Sup*
+	• Supposes we have an objects that laods data from thedatabase
+	• We need to modify this data in our program many times
+	• Not good idea to create the object using new keyword and load all databsase daagain from database
+	• We can cashce object and lcone obje on next request
+
+
+
+So when should we use a protoype?
+	• When a system should be indeptendent of its products are crated
+	• Does not care aobut craational mechanism of the products
+	• We can use this pattersn when we need to instantiate classes at runtime
+	• Dynamice loading
+	• When a system must create new objecrs of any tipes in a complex classhirareachy
+	• You want to build a class hierarchy of factories that parallels the class hierarchy of products
+	• When instnaces of a case can have on of only a few different combinations of state
+	• May be more convenient to install a coreesponding number of protodytpes and clon
+	• May be more convenient to install a correpsonding number of protoaypes and lcone them rather than instiating the class manually, each time with the approproaite state
+	• Hides the copmpelxities of making new instnaces from the client
+	• Provides the option fro the client to generate objects whose type si  not known in s
+i*
+
+ADVANTAGES
+	• HIDES THE COMPLEXITIES OF MAKING NEW INSTANCES FROM THE CLIENT 
+	• PROVIDES THE OPITON FOR THE CLIENT TO GENERATE OBJECTS WHOSE TYPE IS NOT KNOWN
+	• IN SOME CIRCUMSTANCES COPYING AN OBJECT CAN BE MORE JEFFICIENT THAN CREATING A NEW OBJECT
+	• WE CAN INCLUDE OR DISCARD PRODUC TS AT RUNTIME
+	• WE CAN CREATE NEW INSTANCES WITH A CHEAPER COST
+
+
+
+DISADVANTAGES/DRAWBACKS
+	• EACH SUBCLASS HAS TO IMPLEMENT THE CLONING MECHANISM
+	• IMPLEMENTING THE4 CLONING MECHANISM CAN BE HCALLENGING 
+IF THE OBJECTS UNDER CONSIDERATION DO NOT SUPPORT COPYING IF THERE IS ANY KIND OF CIRCULAR REFERENCE
+
+
+OVERVIEW OF OUR IMPLEMENTATION
+
+WHEN IMPLEMENTING THE PROTOTYPE PATTTERN THE FOLLWING PARTICIIPAANTS ARE INCLUDED
+
+	• PROTOTYPE
+		○ DECLARES AN INTERFACE FOR CLONING ITSELF
+• CONCRETE PROTOTYPE
+	• IMPLEMENTATS AN OPERATION FRO CLONIGN ITSELF
+• CLIENT
+	• CREATES A NEW OBJECT BY ASKING A PROTOTYPE TO CLONE ITSELF
+
+
+IMPLEMENTATION ADVANTAGES
+• IT HIDES THE CONCRETE PRUDCT CLASSES FROM THE CLINET
+	• REDUCES THE NUM BER ORF NAMES CLIENTS KNOW ABOUT
+	• LET A CLIENT WORK WITH APPLICATION SPECIFIC CLASSES WITHOUT MODIFICATION
+• LET YOU INCORPORATE A NEW CONCRETE PRODUCT CLASS INTO A SYSTEM SIMPLY BY REGISTERING A PROTOYPICAL INSTANCE WITH THE CLIENT
+	• MORE FLEXIBLE THN OTHER CREATIONAL PATTERNS BECAUSE A CLIENT CAN ISNTALL AND REMOVE PROTOYPES AT RUN TIME
+• LET YOU DEFINE NEW BEHAVIOR THROUGH OBJECT COMPOSITION
+• BY SPECIFYING VALUES FOR AN OJBECTS VARIABLE SOFFOFR FOR EXAMPLE AND NOT BY DEFINING NEW CLASSES
+• YOU DEFINE A NEW KIND OF OBJECTS BY INSTANTIATING EXISTING CLASSES AND REGISTERING THE INSTANCES AS PROTOTYPE OSF CLIENT OBJECTS
+• A CLEINT CAN EXHIBIT NEW BEHAIVROR R BY DELEGATING REPSONSIBILITY TO THE PROTOTYPE
+
+
+LET USERS TO DEEFINE NEW CLASSES WITHOUT PROGRAMMING
+CLONGIN A PROTOYPE IS SIMILAR TO INSTNTIATING A CLASS
+CAN GREATLY DREDUCE THE NUMBER OF CLASSES A SYSTME NEEDS
+
+REDUCES SUBCLASSING FA
+FACTORY METHOD OFTEN PRODUCES A HIERARCHY OF CREATOR CLASSES THAT PARALLELS
+THE PROTOYPE PATTERN LETS YOU CLONE A PROTOYPE INSTEAD O F ASKING A FACTORY METHOD TO MAKE  NEW OBJECGT
+	DO NOT CREATE A CREATOR CLASS HIERARCHY AT ALL
+
+
+Problems of the cloneable interface
+• From our previous lecture we know that the implementation of the prototype desing pattern involves implementing the cloneable interface
+• Java provides  a mechanism for cloning of bjects that is very easy to implement
+• You first need to implement the cloenable interface
+• You then need to define a clone method that sohould handle clonenot supported retu
+	• Returns a shallow copy of the object
+		○ A shallow copy means if the copies object contains references to other objects , these objects are not cloned a deep copy wiould clone even referenced objects
+			§ La
+• Lastly we call the clone method of the superclass
+
+
+Example of the cloneable interface
+	==========================================
+	Class Person implements Cloneable {
+		Private String name;
+		Private City city; //deep copy
+	
+	//no @override here, means we are not overriding clone
+		Public person clone() throws CloneNotSupportedException{//step 2
+			Person clonedObject = (Person) super.clone(); //step 3
+			clonedObject.city = this.city.clone();// making a deeptcopy of city
+		}
+	}
+	==========================================
+	
+	Advantages of using the cloneable interface
+	
+	
+	Object.clone() is the most popular and easiest way of copying objects
+	• This is why we use it when implementing the prototype design pattern 
+	• We need to define a parent class
+		○  impelement cloneable in it
+		○ Provide the definition of the clone() method
+	• Every child of our parent will get the cloning feature
+
+• Cloning requires very few lines of code
+	• An abstract class with 4 or 5 lines in the clone() method
+	• Also need to override it if we need deep cloning 
+• W should use clone to copy arrays that is fastest way to do it
+
+
+PROBLEMS WITH THE CLONEABLE INTERFACE
+• Some academics think that cloning is deeply broken in java
+• The cloneable interface lack sthe clone method
+	• The cloneable is a marker interface and does not have any methods in it
+	• We still need to implement it just to tell the jvm that we can perfomr clone in our object
+• Object .clone is protected
+		○ We have to provide oru own clone and indirectly call object.clone() from it
+	• We do not have any control over object construction because object.clone does not invoke any constructor
+		○ Ther are no guarantees that it preserves the invariants established by the constructors
+
+
+• If we are writing a clone method in  a child class then all of its superclasses should define the clone method
+	• Otherwise the super.clone chain will fail
+	• Object.clone supports only shallow copying
+		○ Does not clone the references fields of the object to be cloned 
+		○ We need to implement clone in every class whose reference our class is holding
+		○ Then 
+			§ Then clas their clone separately in our clone mehtod
+
+
+• We can not maimpulate final fields in object.clone()
+	• Final fields can only be changed through constructors
+	• If we want every object to be unique by including an id, we will get the duplicate boject wf we use object.cone
+		○ Object.clone(() will not call the constructor and final id field can not be modified from invoking the clone method
+
+
+• You can not do a polymorphic clone operation
+	• If I have an array of cloenable you would think  that I could run down that array and clone every element to make a deep copy of the array 
+		○ This does not work you cannot cast something to cloneable and call the clone mehtod
+			§ Coneable does not have a public conet method and neither does object
+	• The clone gneraly shares state with tobject being cloend
+	• If that state is mutable you do not have two indepanedent object
+		○ If you modify one  the other chagnes as well and all of a sutdden you get random behavior
+			§ Cleoneable is weak spot and you should be awayre of tis limitation
